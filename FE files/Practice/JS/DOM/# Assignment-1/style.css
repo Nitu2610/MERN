@@ -1,0 +1,29 @@
+.ChildBox {
+  width: 200px;
+  padding: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  text-align: center;
+  height: 280px;
+  background-color: rgb(253, 217, 172);
+}
+
+.ImageBox {
+  width: 180px;
+  border-radius: 15px;
+  padding-top: 10px;
+}
+#root {
+  margin: auto;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 20px;
+}
+body {
+  background-color: blanchedalmond;
+}
+h1 {
+  text-align: center;
+  color: rgb(161, 138, 19);
+}
