@@ -54,6 +54,8 @@ const routingDetails = [
   { no: 8, to: "/accessories", heading: "Accessories", element: Accessories },
 ];
 
+
+document.title="Simple Routing Page"
 function MainNavigation() {
   return (
     <nav>
