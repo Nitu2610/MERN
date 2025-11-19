@@ -1,0 +1,35 @@
+.card {
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.name {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.email {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+body {
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
