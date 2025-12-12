@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  },
+  "scripts":{
+    "http":"nodemon index.js",
+    "express" :"nodemon expressServer.js"
+  }
+}
+
