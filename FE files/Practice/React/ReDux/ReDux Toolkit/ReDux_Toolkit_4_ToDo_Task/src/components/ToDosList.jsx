@@ -26,7 +26,7 @@ export const ToDosList = () => {
               <div
                 key={i}
                 style={{
-                  border: "1px solid",
+                 boxShadow:' rgba(0, 0, 0, 0.16) 0px 1px 4px',
                   display: "flex",
                   justifyContent: "space-between",
                   alignContent: "center",

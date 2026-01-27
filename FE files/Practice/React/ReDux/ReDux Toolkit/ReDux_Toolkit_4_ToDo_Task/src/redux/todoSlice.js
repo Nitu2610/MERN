@@ -11,13 +11,18 @@ const initialState={
 const todoSlice=createSlice({
     name:'todoList',
     initialState,
+    reducers:{
+        addTodoTask: (state, action)=>{
+            state.data.push(action.payload);
+        },
+    },
     extraReducers:(builder)=>{
         builder
         .addCase(fetchTodos.pending, (state)=> {
             state.loading=true;
         })
         .addCase(fetchTodos.fulfilled, (state, action)=> {
-            state.data=action.payload.data;
+            state.data=action.payload;
             state.loading=false;
         })
         .addCase(fetchTodos.rejected, (state, action)=> {
@@ -27,5 +32,6 @@ const todoSlice=createSlice({
     },
 })
 
+export  const {addTodoTask}= todoSlice.actions;  
 
 export default todoSlice.reducer;
