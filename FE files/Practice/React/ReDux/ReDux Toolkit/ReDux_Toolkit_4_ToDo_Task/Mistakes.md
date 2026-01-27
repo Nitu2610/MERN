@@ -5,7 +5,7 @@
 - res.json() returns a Promise
 - You were returning a Promise to Redux instead of real data
 - ✅ Always write:
-        const data = await res.json();
+  const data = await res.json();
 
 ---
 
@@ -107,6 +107,38 @@
 
 ---
 
+### 11. Incorrect thunk argument structure
+
+- ❌ You wrote:
+  `async (id, status, { rejectWithValue }) => { ... }`
+
+- ✅ createAsyncThunk only accepts one payload argument, plus thunkAPI.
+- Fix: wrap multiple values in an object:
+  `async ({ id, status }, { rejectWithValue }) => { ... }`
+
+---
+
+### 12.Confusion about UI toggle
+
+- ❌ Some versions didn’t clearly flip the status before sending.
+- ✅ Correct: use !completed to toggle:
+  `dispatch(toggleStatusTodoThunk({ id, completed: !completed }));`
+
+---
+
+### 13. Repetitive pending and rejected handlers
+
+- Each thunk repeats:
+  `state.loading = true;`
+  `state.error = null;`
+- And for rejected:
+  `state.loading = false;`
+  `state.error = action.error.message;`
+- ❌ Could be DRY’ed into helper functions. Use helper functions for pending/rejected
+
+       ~ `const handlePending = (state) => { state.loading = true; state.error = null; };`
+        `const handleRejected = (state, action) => { state.loading = false; state.error = action.error.message; };`
+
 ## 🏆 Golden Rules (Memorize These)
 
 - ✅ Always await res.json().
@@ -119,3 +151,4 @@
 - ✅ Always check naming collisions
 - ✅ Forms use onSubmit, not onClick
 - ✅ A side effect is anything your code does outside of just calculating and returning a value.
+- ✅ Thunk arguments structure (must be one object).
