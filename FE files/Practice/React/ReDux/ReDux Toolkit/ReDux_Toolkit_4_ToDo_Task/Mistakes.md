@@ -118,3 +118,4 @@
 - ✅ React & Redux state are immutable.
 - ✅ Always check naming collisions
 - ✅ Forms use onSubmit, not onClick
+- ✅ A side effect is anything your code does outside of just calculating and returning a value.

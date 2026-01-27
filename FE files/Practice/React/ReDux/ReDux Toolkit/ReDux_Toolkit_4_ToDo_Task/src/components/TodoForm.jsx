@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodoTask } from "../redux/todoSlice";
+import { addTodoThunk } from "../redux/actions";
 
 export const TodoForm = () => {
   const [userTodo, setUserTodo]= useState({title:"",status:""});
@@ -23,8 +24,9 @@ export const TodoForm = () => {
       completed: status === "Completed" ? true :false, // or  completed: status === "Completed" // the comparison will  returns a boolean, you can just re- write.
     };
    //  let newTodoData= [...data,addTodoTask]; // Either I can create a new copy of the array with user added todo task or just send the task obj and in the reducer it will directly add to the state array. 
-   console.log(addTodoTask)
-    dispatch(addTodoTask(newTask));
+   // console.log(addTodoTask)
+   // dispatch(addTodoTask(newTask));
+    dispatch(addTodoThunk(newTask));
  //    console.log(` the user todo is `, userTodo);
     setUserTodo({title:"",status:" "});
   }
@@ -35,7 +37,7 @@ export const TodoForm = () => {
       <input type="text" placeholder="Enter the todo title" name="title" value={userTodo.title} onChange={handleChange}/>
 
       <select name="status" onChange={handleChange} value={userTodo.status} >
-        <option  >Select the task status</option>
+        <option value="" >Select the task status</option>
         <option value="Completed"> Completed</option>
         <option value="Not Completed"> Not Completed</option>
       </select>

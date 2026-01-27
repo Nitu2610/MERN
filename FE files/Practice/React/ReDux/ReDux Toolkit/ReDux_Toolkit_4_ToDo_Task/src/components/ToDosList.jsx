@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "../redux/fetchTodos";
+import { fetchTodos } from "../redux/actions";
+import { deleteTodoTask, handleStatusToggle } from "../redux/todoSlice";
 
 export const ToDosList = () => {
   let dispatch = useDispatch();
@@ -12,8 +13,12 @@ export const ToDosList = () => {
   }, [dispatch]);
 
   if (loading) return <h1> Loading ....</h1>;
-  if (error)
-    return <h1> Error 404 : Unable to fetch the data ...., {error.message}</h1>;
+  if (error) return <h1> Error 404 : Unable to fetch the data ...., {error}</h1>;
+
+function handleEdit(userId){
+
+}
+
   return (
     <>
       <div id="Outer-Container">
@@ -39,10 +44,16 @@ export const ToDosList = () => {
                 <p>
                   Title: <strong>{title}</strong>
                 </p>
-                <p style={{ paddingRight: 40 }}>
+                <p style={{ paddingRight: 40, textDecoration: completed ? "line-through" : "none" }}>
                   Status:{" "}
                   <strong>{completed ? "Completed" : "Not Completed"}</strong>
                 </p>
+
+                <div id="edit&delete&completionBtn">
+                    <button onClick={()=>handleEdit(title)}>Edit</button>
+                  <button onClick={()=> dispatch(deleteTodoTask(title))}>Delete</button> {/** takind the title because its unique, comparing to the userId */}
+                  <button onClick={()=> dispatch(handleStatusToggle(title))}>{`Mark as ${completed ? 'Not Completed' : 'Completed'}`}</button>
+                </div>
               </div>
             );
           })
@@ -51,3 +62,4 @@ export const ToDosList = () => {
     </>
   );
 };
+
