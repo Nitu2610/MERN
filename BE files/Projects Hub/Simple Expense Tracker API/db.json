@@ -1,0 +1,7 @@
+{
+  "expenses": [
+    { "id": 1, "title": "Food", "amount": 250, "category": "Daily" },
+    { "id": 2, "title": "Shopping", "amount": 2500, "category": "Monthly" },
+    { "id": 3, "title": "Mobile Bill", "amount": 3000, "category": "Monthly" }
+  ]
+}
