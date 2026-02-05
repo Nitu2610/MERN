@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema(
   {
-    title: { type: String, required: true },
-    content: { type: String, required: true },
+    title: { type: String, required: true, trim: true },
+    content: { type: String, required: true, trim: true },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
@@ -41,3 +41,8 @@ module.exports = PostModel;
 //      ref: "user",
 //  ==> Tells Mongoose which collection this ID belongs to.
 // "user" must match: ==> mongoose.model("user", userSchema);
+
+//SHort summary-
+// ObjectId → stores _id of another document
+// ref      → tells which model that _id belongs to
+// Used to link collections without copying data

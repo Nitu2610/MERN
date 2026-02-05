@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    firstName: { type: String, required: true },
+    firstName: { type: String, required: true, trim: true },
     lastName: String,
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true },
     dateOfBirth: String,
     gender: String,
@@ -19,10 +19,6 @@ const userSchema = mongoose.Schema(
 const UserModel = mongoose.model("user", userSchema);
 
 module.exports = UserModel;
-
-
-
-
 
 // User model (clean & realistic)
 
