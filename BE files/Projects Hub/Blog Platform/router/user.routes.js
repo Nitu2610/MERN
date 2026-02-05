@@ -28,4 +28,17 @@ userRouter.get("/details", async (req, res) => {
   }
 });
 
+//-----------------POST-------------------
+
+userRouter.post('/create-user',async( req,res)=>{
+    let userDetails=req.body;
+    try {
+        let user=new UserModel({...userDetails});
+        await user.save();
+        res.status(201).json({"msg":`The user : ${userDetails.firstName} is created successfully.`})
+    } catch (error) {
+        res.status(500).json({"err":"Unable to create the user." , error:error})
+    }
+})
+//----------------------------
 module.exports = userRouter;
