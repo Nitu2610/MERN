@@ -15,7 +15,6 @@ userRouter.post("/signup", async (req, res) => {
       .status(201)
       .json({
         msg: ` Ther user: ${clientData.name} are created successfully`,
-        token,
       });
   } catch (error) {
     res

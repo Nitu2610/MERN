@@ -1,6 +1,7 @@
 const express=require('express');
 const connection = require('./config/db');
 const userRouter = require('./router/user.router');
+const prodRouter = require('./router/product.router');
 const dotenv=require('dotenv').config();
 
 
@@ -8,7 +9,7 @@ const dotenv=require('dotenv').config();
 const server=express();
 server.use(express.json());
 server.use('/users', userRouter)
-
+server.use('/product',prodRouter)
 
 
 
