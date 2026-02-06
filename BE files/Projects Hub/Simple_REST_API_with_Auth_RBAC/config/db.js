@@ -1,8 +1,8 @@
-const mongoose=require('mongoose');
-const dotenv=require('dotenv').config();
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
-const url= process.env.MONGODB_URI;
+const url = process.env.MONGODB_URI;
 
-const connection=mongoose.connect(url);
+const connection = mongoose.connect(url);
 
-module.exports=connection;
+module.exports = connection;
