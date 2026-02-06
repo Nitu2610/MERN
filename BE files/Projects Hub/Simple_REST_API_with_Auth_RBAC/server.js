@@ -1,10 +1,13 @@
 const express=require('express');
 const connection = require('./config/db');
+const userRouter = require('./router/user.router');
 const dotenv=require('dotenv').config();
 
 
 
 const server=express();
+server.use(express.json());
+server.use('/users', userRouter)
 
 
 
