@@ -3,6 +3,7 @@ const UserModel = require("../model/user.model");
 const dotenv = require("dotenv").config();
 var jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const blockListedToken = require("../blockTokenFromReLogin");
 
 const userRouter = express.Router();
 
@@ -63,7 +64,7 @@ userRouter.post("/login", async (req, res) => {
             .status(401)
             .json({ err: "The password entered is incorrect." });
         } 
-          const token = jwt.sign({ name: user.name, role: user.role }, JWT_KEY);
+          const token = jwt.sign({ name: user.name, role: user.role }, JWT_KEY, {expiresIn:'10m'}); // {expiresIn:'10m'} paramas tell the timelimit until when the token valid, m- mins, d-days.
           return res.status(200).json({ msg: "The password entered is correct and user is logged in. ", token });
       });
     }
@@ -71,5 +72,15 @@ userRouter.post("/login", async (req, res) => {
     res.status(500).json({ err: "Unable to check the credantials." });
   }
 });
+
+
+//-------------------------- logout-------------------
+
+
+userRouter.get('/logout', (req , res)=>{
+  const token=req.headers.authorization;
+  blockListedToken.push(token); // we sent the token to array and same toke will be cross checked in the array when trying to login later, if present then block or else pass. 
+  res.send(' logout successfully.')
+})
 
 module.exports = userRouter;
