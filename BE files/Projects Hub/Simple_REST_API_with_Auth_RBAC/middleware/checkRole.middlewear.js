@@ -5,10 +5,16 @@ const checkRole = (req, res, next) => {
     if (userRole === "admin") {
       next();
     } else {
-      res.status(403).json({ err: "Unauthorised to add products." });
+      res.status(403).json({
+        success: false,
+        message: "Forbidden: admin access required"
+      });
     }
   } catch (error) {
-    res.status(500).json({ err: "Unable to authorise the role of user" });
+    res.status(500).json({
+      success: false,
+      message: "Unable to authorise the role of user",
+    });
   }
 };
 
