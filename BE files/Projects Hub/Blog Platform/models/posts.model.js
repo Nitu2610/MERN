@@ -1,5 +1,15 @@
 const mongoose = require("mongoose");
 
+const commentSchema = mongoose.Schema(
+  {
+    text: { type: String, trim: true, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
+  },
+  {
+    timestamps: true,
+  },
+);
+
 const postSchema = mongoose.Schema(
   {
     title: { type: String, required: true, trim: true },
@@ -12,11 +22,13 @@ const postSchema = mongoose.Schema(
     location: String,
     tag: [String],
     coverImage: String,
+    comments: [commentSchema], // link the value(commentSchema) to comment
   },
   {
     timestamps: true,
   },
 );
+
 
 const PostModel = mongoose.model("post", postSchema);
 

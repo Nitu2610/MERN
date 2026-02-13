@@ -1,12 +1,21 @@
 const express = require("express");
 const connection =require('./config/db');
+const userRouter = require("./router/user.routes");
+const postRouter = require("./router/post.router");
 
 const server = express();
+server.use(express.json());
+server.use('/users',userRouter);
+server.use('/posts',postRouter);
+//-------------------------------------------
+
+
+
 
 server.get("/", (req, res) => {
   res.send("the server is working!!!!");
 });
-
+//---------------------------------------------------------
 const PORT = 6001;
 server.listen(6001, async () => {
   try {
