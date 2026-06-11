@@ -8,9 +8,9 @@ const items = ["Chicken Biryani", "Mutton Biryani", "Veg Biryani"]; // The menu
    <>
     <h1>{onlineStatus ? " Welcome! We are Open for Delivery. ": " Sorry, we are currently Closed!" } </h1>
     <ul>
-      {items.map((ele,i)=>{
+      {items.map((ele,index)=>{
         return (
-          <li key={i}>{ele}</li>
+          <li key={index}>{ele}</li>
         )
       })}
     </ul>
