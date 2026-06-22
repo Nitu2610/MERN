@@ -3,10 +3,10 @@ import { Navbar } from './Navbar'
 import { Outlet } from 'react-router-dom'
 import { Footer } from './Footer'
 
-export const Layout = () => {
+export const Layout = ({isLoggedIn, setIsLoggedIn}) => {
   return (
   <>
-   <Navbar/>
+   <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
    <Outlet/>
    <Footer/>
   </>

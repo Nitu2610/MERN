@@ -6,11 +6,11 @@ import './App.css'
 import { AppRouting } from './Comps/AppRouting'
 
 function App() {
-  const [count, setCount] = useState(0)
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
-     <AppRouting/>
+     <AppRouting isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
     </>
   )
 }

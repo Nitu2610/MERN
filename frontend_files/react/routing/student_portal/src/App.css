@@ -1,3 +1,7 @@
 .nav-active{
   color:red
 }
+.std-dshb{
+  cursor: pointer;
+  color: blue;
+}

@@ -1,7 +1,12 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 export const StudentDetails = () => {
+  const studentId=useParams();
+  console.log(studentId)
   return (
-    <div>StudentDetails</div>
+   <>
+   <h1>Student Id: {studentId.id} </h1>
+   </>
   )
 }

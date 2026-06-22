@@ -1,15 +1,21 @@
-import { Container, Link } from "@chakra-ui/react";
-import React from "react";
+import { Button, Container, Link } from "@chakra-ui/react";
+import React, { useState } from "react";
 import "../App.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { StudentDashboard } from "../Pages/StudentDashboard";
 
-export const Navbar = () => {
+export const Navbar = ({isLoggedIn, setIsLoggedIn}) => {
   let options = [
     { lable: "Home", path: "/" },
     { lable: "Courses", path: "/courses" },
-    { lable: "Login", path: "/login" },
     { lable: "Student Dashboard", path: "/student-dashboard" },
   ];
+ 
+  const navigate = useNavigate();
+  const handleUserStatus = () => {
+    setIsLoggedIn((prev) => !prev);
+    !isLoggedIn ? navigate("/student-dashboard") : navigate("/login");
+  };
 
   return (
     <Container>
@@ -34,6 +40,13 @@ export const Navbar = () => {
             </NavLink>
           </li>
         ))}
+        <li>
+          {" "}
+          <Button onClick={handleUserStatus}>
+            {" "}
+            {isLoggedIn ? "Logout" : "Login"}
+          </Button>
+        </li>
       </ul>
     </Container>
   );
