@@ -1,6 +1,7 @@
 import "./App.css";
 import { createStore } from "redux";
 import { Counter } from "./Counter";
+import { ReDuxCounter } from "./components/ReDuxCounter";
 
 /** 1.Step create the reducer with initial state value */
 const counterReDuxReducer = (currentState = 0, action) => {
@@ -65,7 +66,8 @@ export const reduxStore = createStore(counterReDuxReducer);
 function App() {
   return (
     <>
-      <Counter />
+     {/**  <Counter />  */}
+      <ReDuxCounter/>
     </>
   );
 }

@@ -4,12 +4,13 @@ import "./index.css";
 import App, { reduxStore } from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { store } from "./store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
      {/** 3.Step wrap the  <App /> with ReDux provider and pass the store */}
-      <Provider store={reduxStore}>
+      <Provider store={store}>
         <App />
       </Provider>
     </BrowserRouter>
