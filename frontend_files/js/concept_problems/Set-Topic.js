@@ -66,6 +66,7 @@
 // for(let ele of b){
 //   if(seen.has(ele)){
 //     res.push(ele)
+//   seen.delete(ele) // to avoid duplicate
 //   }
 // }
 
