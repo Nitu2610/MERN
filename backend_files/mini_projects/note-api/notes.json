@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Express",
+    "content": "Learning Express"
+  },
+  {
+    "id": 2,
+    "title": "Node",
+    "content": "Completed learnign it and progressing fast."
+  },
+  {
+    "title": "Express",
+    "content": "Learning phase",
+    "id": 3
+  },
+  {
+    "title": "React",
+    "content": "Learning React",
+    "id": 4
+  }
+]
